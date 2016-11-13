@@ -1,0 +1,22 @@
+{
+  "name": "ebaysdk",
+  "version": "1.0.0",
+  "description": "Make a library to work with ebay's api Create utlity functions that wrap around ebay's api features create utility functions to help nav ebay api",
+  "main": "server/server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironpup/ebaySDK.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ironpup/ebaySDK/issues"
+  },
+  "homepage": "https://github.com/ironpup/ebaySDK#readme"
+}
