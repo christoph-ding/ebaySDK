@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ironpup/ebaySDK/issues"
   },
-  "homepage": "https://github.com/ironpup/ebaySDK#readme"
+  "homepage": "https://github.com/ironpup/ebaySDK#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
