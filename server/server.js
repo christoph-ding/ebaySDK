@@ -25,6 +25,9 @@
 // node is NOT opinionated, there are too many ways to do things
 
 
+// git ignore for "node_modules" bc users should not be installing our versions
+
+
 // node signature pattern 1 (api) req/res/cb
 // pattern 2 (i/o) error/data
 
@@ -62,6 +65,13 @@ app.get("/", function (req, res) {
     //res.send('sent msg'); // completes the request-response cycle
 });
 
+// NOTE: href is looking at root folder! wow
+app.get("/style.css", function (req, res) {
+    var pathToCss = path.join(rootDir, 'client/style.css');
+    console.log('style.css', pathToCss);
+    res.sendFile(pathToCss);
+});
+
 //app.get("/abe", function () {
 //    console.log("You just did GET for 'abe'");
 //});
@@ -70,3 +80,5 @@ app.get("/", function (req, res) {
 //    // check str
 //}
 
+
+// TODO: use express.static to do all of above easily
