@@ -22,7 +22,21 @@
 // essentially, server is a dashboard, then endpoints are buttons (same as interface?)
 
 
+// node is NOT opinionated, there are too many ways to do things
+
+
+// node signature pattern 1 (api) req/res/cb
+// pattern 2 (i/o) error/data
+
+
+// what to do
+// 1. send html
+
+
 var express = require('express');
+var fs = require('fs');
+var path = require('path'); //has useful 'join' shit
+var rootDir = "C:/test/ebaySDK";
 
 var app = express();
 const PORT = 8000 || production.env.NODE_ENV // This is weird (heroku will interpet)
@@ -31,20 +45,28 @@ app.listen(PORT, function () {
     console.log("Hi I'm running on port:", PORT);
 });
 
-//app.get("/", function (req, res, cb) {
 app.get("/", function (req, res) {
-    //console.log("You just did GET", req, res); //NOTE: lots of stuff built in here
-    console.log("You just did GET", res); //NOTE: lots of stuff built in here
+    var pathToHtml = path.join(rootDir, 'client/index.html');
+
+    res.sendFile(pathToHtml);
+
+    //fs.readFile(pathToHtml, 'utf8', function (err, data) {
+    //    if (err) {
+    //        return console.log('error:', err);
+    //    }
+    //    //console.log('contents:', data);
+    //    res.send(data); // completes the request-response cycle
+    //});
 
     //res.status(500).send();
-    res.send('sent msg'); // completes the request-response cycle
+    //res.send('sent msg'); // completes the request-response cycle
 });
 
-app.get("/abe", function () {
-    console.log("You just did GET for 'abe'");
-});
+//app.get("/abe", function () {
+//    console.log("You just did GET for 'abe'");
+//});
 
+//function doesEndpointExist(str) {
+//    // check str
+//}
 
-function doesEndpointExist(str) {
-    // check str
-}
