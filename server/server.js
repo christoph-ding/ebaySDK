@@ -3,7 +3,6 @@
 var express = require('express');
 var fs = require('fs');
 var path = require('path'); //has useful 'join' shit
-var rootDir = "C:/test/ebaySDK";
 
 /* GLOBAL VARS */
 var app = express();
@@ -36,7 +35,7 @@ app.listen(PORT, function () {
 
 /* EXAMPLE: Serve html to 'get'
     app.get("/", function (req, res) {
-        var pathToHtml = path.join(rootDir, 'client/index.html');
+        var pathToHtml = path.join(__dirname, '../client/index.html');
 
         fs.readFile(pathToHtml, 'utf8', function (err, data) {
             if (err)
@@ -52,7 +51,7 @@ app.listen(PORT, function () {
 /* EXAMPLE: Serve css for html
     // NOTE: html wants css and href is looking at root folder! wow
     app.get("/style.css", function (req, res) {
-        var pathToCss = path.join(rootDir, 'client/style.css');
+        var pathToCss = path.join(__dirname, '../client/style.css');
         res.sendFile(pathToCss);
     });
 */
@@ -61,12 +60,12 @@ app.listen(PORT, function () {
 
 /* EXAMPLE: Using helper functions to encapsulate reading file vs sending res */
 app.get("/", function (req, res) {
-    var pathToHtml = path.join(rootDir, 'client/index.html');
-    readFile(pathToHtml);
+    var pathToHtml = path.join(__dirname, '../client/index.html');
+    readFile(req, res, pathToHtml);
 });
 
-function readFile(req, res, cb) {
-    fs.readFile(path, 'utf8', function (err, data) {
+function readFile(req, res, pathToHtml) {
+    fs.readFile(pathToHtml, 'utf8', function (err, data) {
         if (err)
             return console.log('error:', err);
         endResReqCycle(res, data);
