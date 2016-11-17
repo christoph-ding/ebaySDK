@@ -51,7 +51,7 @@ app.listen(PORT, function () {
 app.get("/", function (req, res) {
     var pathToHtml = path.join(rootDir, 'client/index.html');
 
-    res.sendFile(pathToHtml);
+    //res.sendFile(pathToHtml);
 
     //fs.readFile(pathToHtml, 'utf8', function (err, data) {
     //    if (err) {
@@ -64,6 +64,18 @@ app.get("/", function (req, res) {
     //res.status(500).send();
     //res.send('sent msg'); // completes the request-response cycle
 });
+
+function endResReqCycle(req, res) {
+    res.send();
+}
+
+function readFile(req, res, cb) {
+    fs.readFile(path, 'utf8', function (err, data) {
+        if (err)
+            return console.log('error:', err);
+        res.send(data); // completes the request-response cycle
+    });
+}
 
 // NOTE: href is looking at root folder! wow
 app.get("/style.css", function (req, res) {
