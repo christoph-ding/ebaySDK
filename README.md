@@ -2,7 +2,7 @@
 DIRECTION OF THIS TUTORIAL
 ============
 # goal
-Make a library to work with ebay's api
+Make a library to work with ebay's api  
 Create utlity functions that wrap around ebay's api
 
 # steps in tutorial
