@@ -1,60 +1,43 @@
 
-# GOAL
+DIRECTION OF THIS TUTORIAL
+============
+# goal
 Make a library to work with ebay's api
-Create utlity functions that wrap around ebay's api features
-create utility functions to help nav ebay api 
+Create utlity functions that wrap around ebay's api
+
+# steps in tutorial
+scaffolding: stub out all main dirs and files 
+    eg. server, client, database
+    eg. server/server.js, client/index.html
+
+create package.json: |npm init|
+fill out server/server.js with express and 'get' (plus 'send')
+run |nodemon server/server.js|
+open up http://localhost:8000 OR |curl http://localhost:8000|
+fill out client/index.html and make it accessible via 'get' (fs.readfile)
+fill out client/style.css and make it accessible via 'get'
 
 
-# parts of a website:
+HIGH LEVEL VIEW OF WEB DEV
+============
+# abstraction layers of a website:
 client layer
 server layer
 database layer
 
-# dev tools
-package.json => for node (there's apparently a LOT in there)
-Task Runner (eg. gulp)
-tests
-
-# chris' dev process
-think of feature
-prove that it's false
-then make it work
-
-# unorgz
-"scaffolding": stubbing out files and dir
-chris thinks of middleware as "decorator"
-
+# items to implement
 authentication
 logging
 functionality/features
 
-why have a middleware?
+# dev tools
+package.json => for node (there's apparently a LOT in there)
+tests
+Task Runner (eg. gulp)
 
-naming of middleware is not great
-if tried to do everything with server, would become unwieldy
-want server to be modular
-middleware will use server to do something
+# chris' process for dev: testing
+1. think of feature
+2. prove that it doesn't work
+3. then make it work
+eg. feature: server has "get". can run and see "get" doesn't work. so implement it
 
-"nodemon" => refreshes server code when server changes
-need some way to have multiple tabs (running node vs running cmds)
-
-
-clone github repo
-start node
-
-1. should be a server
-chris contention: server can exist without an api
-server should display some log
-
-express just packages up node to make it simpler
-express is another middleware
-
-# to create package.json
-"npm init"
-
-# on git (good practices)
-NOTE: don't use "git add ." bc it's lazy
-git add
-git commit
-git push
-git remote set-url origin https://ironpup@github.com/user/ebaySDK.git
