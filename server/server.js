@@ -1,13 +1,12 @@
 
+
 /* DEPENDENCIES */
 var express = require('express');
-var fs = require('fs');
-var path = require('path'); //has useful 'join' shit
+var mid = require('./middleware.js');
 
 /* GLOBAL VARS */
 var app = express();
-const PORT = 8000 || production.env.NODE_ENV // This is weird (heroku will interpet)
-
+const PORT = 8000 || production.env.NODE_ENV; // This is weird (heroku will interpet)
 
 app.listen(PORT, function () {
     console.log("Hi I'm running on port:", PORT);
@@ -57,22 +56,5 @@ app.listen(PORT, function () {
 */
 
 
-
-/* EXAMPLE: Using helper functions to encapsulate reading file vs sending res */
-app.get("/", function (req, res) {
-    var pathToHtml = path.join(__dirname, '../client/index.html');
-    readFile(req, res, pathToHtml);
-});
-
-function readFile(req, res, pathToHtml) {
-    fs.readFile(pathToHtml, 'utf8', function (err, data) {
-        if (err)
-            return console.log('error:', err);
-        endResReqCycle(res, data);
-    });
-}
-
-function endResReqCycle(res, data) {
-    res.send(data);
-}
+mid.inject(app, express);
 
