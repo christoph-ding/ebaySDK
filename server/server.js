@@ -56,5 +56,5 @@ app.listen(PORT, function () {
 */
 
 
-mid.inject(app, express);
+mid.inject(app);
 
